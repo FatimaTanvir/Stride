@@ -1,0 +1,63 @@
+.masonry-grid {
+  columns: 1;
+  column-gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 30px;
+  display: block;
+  page-break-inside: avoid;
+}
+
+.masonry-item .card {
+  background: var(--card-light);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: var(--shadow-light);
+  transition: all 0.3s ease;
+  height: fit-content;
+}
+
+.masonry-item .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+@media (min-width: 768px) {
+  .masonry-grid {
+    columns: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .masonry-grid {
+    columns: 3;
+  }
+}
+
+@media (min-width: 1200px) {
+  .masonry-grid {
+    columns: 4;
+  }
+}
+
+/* Dark mode support */
+.dark .masonry-item .card {
+  background: var(--card-dark);
+  border-color: var(--border-dark);
+  box-shadow: var(--shadow-dark);
+}
+
+.dark .masonry-item .card p {
+  color: var(--text-dark);
+}
+
+.dark .masonry-item .card div {
+  border-top-color: var(--border-dark);
+  color: var(--text-dark);
+}
