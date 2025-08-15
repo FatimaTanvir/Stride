@@ -1,189 +1,122 @@
-# Stride - Running Community Forum
+# Web Development Final Project - Stride
 
-A modern, responsive web application for runners to share experiences, connect with fellow athletes, and discover new routes. Built with React, Supabase, and modern web technologies.
+Submitted by: **Fatima Tanvir**
 
-## 🏃‍♀️ Features
+This web app: **A social platform for runners to share their experiences, connect with fellow runners, and discover new routes. Users can create posts about their runs, share photos, and interact with the running community.**
 
-### Core Functionality
-- **Post Creation**: Create posts with titles, content, images, and tags
-- **Post Feed**: Pinterest-style masonry layout displaying all posts
-- **Post Details**: Full post view with comments and interactions
-- **Search & Filter**: Find posts by title and filter by categories
-- **Sorting**: Sort posts by newest, oldest, or most cheers
-- **Comments**: Add and view comments on posts
-- **Cheers System**: Like posts with a "cheer" instead of traditional likes
+Time spent: **25** hours spent in total
 
-### User Experience
-- **Responsive Design**: Works perfectly on desktop, tablet, and mobile
-- **Dark/Light Mode**: Toggle between themes with persistent preferences
-- **Smooth Animations**: Page transitions and hover effects
-- **Masonry Layout**: Pinterest-style grid that adapts to content
-- **Tag System**: Categorized tags for easy content discovery
+## Required Features
 
-### Technical Features
-- **Modern React**: Built with React 19 and latest hooks
-- **Client-Side Routing**: Smooth navigation with React Router
-- **State Management**: Context API for theme management
-- **CSS Variables**: Dynamic theming system
-- **Responsive CSS**: Mobile-first design approach
+The following **required** functionality is completed:
 
-## 🛠️ Tech Stack
+- [x] **Web app includes a create form that allows the user to create posts**
+  - Form requires users to add a post title
+  - Forms should have the *option* for users to add: 
+    - additional textual content
+    - an image added as an external image URL
+- [x] **Web app includes a home feed displaying previously created posts**
+  - Web app must include home feed displaying previously created posts
+  - By default, each post on the posts feed should show only the post's:
+    - creation time
+    - title 
+    - upvotes count
+  - Clicking on a post should direct the user to a new page for the selected post
+- [x] **Users can view posts in different ways**
+  - Users can sort posts by either:
+    -  creation time (newest/oldest)
+    -  upvotes count (most cheers)
+  - Users can search for posts by title
+- [x] **Users can interact with each post in different ways**
+  - The app includes a separate post page for each created post when clicked, where any additional information is shown, including:
+    - content
+    - image
+    - comments
+  - Users can leave comments underneath a post on the post page
+  - Each post includes an upvote button on the post page. 
+    - Each click increases the post's upvotes count by one
+    - Users can upvote any post any number of times
 
-- **Frontend**: React 19, Vite, React Router DOM
-- **Styling**: Custom CSS with CSS Variables
-- **Backend**: Supabase (PostgreSQL + Real-time)
-- **Deployment**: Ready for Netlify
-- **Development**: ESLint, Hot Module Replacement
+- [x] **A post that a user previously created can be edited or deleted from its post pages**
+  - After a user creates a new post, they can go back and edit the post
+  - A previously created post can be deleted from its post page
 
-## 🚀 Getting Started
+The following **optional** features are implemented:
 
-### Prerequisites
-- Node.js (v18 or higher)
-- npm or yarn
+- [x] Users can customize the interface
+  - Dark mode toggle for color scheme customization
+  - Responsive design that adapts to different screen sizes
+  - Modern UI with smooth animations and transitions
+- [x] Users can add more characteristics to their posts
+  - Users can add tags to categorize posts (Nutrition, Training, Gear, etc.)
+  - Users can filter posts by categories on the home feed
+  - Users can share external images via URL
+- [x] Web app displays a loading animation whenever data is being fetched
+  - Loading states for posts and comments
+  - Smooth page transitions
+  - Real-time updates with Supabase subscriptions
 
-### Installation
+The following **additional** features are implemented:
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd Stride
-   ```
+- [x] **Real-time Updates**: Posts and comments update in real-time using Supabase subscriptions
+- [x] **Masonry Layout**: Beautiful Pinterest-style grid layout for posts
+- [x] **Advanced Search & Filtering**: Combined search and category filtering system
+- [x] **Responsive Design**: Fully responsive design that works on desktop, tablet, and mobile
+- [x] **Modern UI/UX**: Clean, modern interface with hover effects and smooth animations
+- [x] **Date Formatting**: Smart relative time display (e.g., "2h ago", "5m ago")
+- [x] **Category System**: Predefined categories for running-related content
+- [x] **Comment System**: Full comment functionality with real-time updates
+- [x] **Image Support**: External image URL support with proper display
+- [x] **Sort Dropdown**: Elegant dropdown for sorting options integrated with filters
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+## Video Walkthrough
 
-3. **Set up environment variables**
-   Create a `.env.local` file in the root directory:
-   ```env
-   VITE_SUPABASE_URL=your_supabase_url
-   VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
-   ```
+Here's a walkthrough of implemented user stories:
 
-4. **Start the development server**
-   ```bash
-   npm run dev
-   ```
+<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-5. **Open your browser**
-   Navigate to `http://localhost:5173`
+<!-- Replace this with whatever GIF tool you used! -->
+GIF created with ...  
+<!-- Recommended tools:
+[Kap](https://getkap.co/) for macOS
+[ScreenToGif](https://www.screentogif.com/) for Windows
+[peek](https://github.com/phw/peek) for Linux. -->
 
-## 📁 Project Structure
+## Notes
 
-```
-src/
-├── components/          # Reusable UI components
-│   ├── CategoryFilter.jsx
-│   ├── DarkModeToggle.jsx
-│   ├── MasonryGrid.css
-│   ├── Navbar.jsx
-│   └── PageTransition.jsx
-├── contexts/           # React Context providers
-│   └── ThemeContext.jsx
-├── pages/             # Main application pages
-│   ├── CreatePost.jsx
-│   ├── Home.jsx
-│   ├── Landing.jsx
-│   └── PostDetail.jsx
-├── utils/             # Utility functions
-│   └── dateUtils.js
-├── App.jsx            # Main app component
-├── App.css            # App-specific styles
-├── index.css          # Global styles
-└── main.jsx           # Application entry point
-```
+**Challenges encountered while building the app:**
 
-## 🎨 Design System
+1. **Database Schema Design**: Initially struggled with the correct column names and relationships between posts and comments tables. Had to ensure consistency between `upvotes_count` vs `cheers_count` and proper foreign key relationships.
 
-### Color Palette
-- **Primary**: `#4f46e5` (Indigo)
-- **Secondary**: `#10b981` (Emerald)
-- **Background Light**: `#ffffff`
-- **Background Dark**: `#1f2937`
-- **Text Light**: `#1f2937`
-- **Text Dark**: `#f9fafb`
+2. **Real-time Subscriptions**: Implementing real-time updates with Supabase was challenging, especially handling different event types (INSERT, UPDATE, DELETE) and ensuring the UI updates correctly without conflicts.
 
-### Typography
-- **Font Family**: System fonts (San Francisco, Segoe UI, etc.)
-- **Font Sizes**: Responsive scale from 14px to 48px
-- **Line Height**: 1.6 for optimal readability
+3. **Dark Mode Implementation**: Ensuring consistent dark mode styling across all components, especially for custom-styled elements like the search bar and dropdown menus, required careful attention to CSS variables and theme context.
 
-### Components
-- **Cards**: Rounded corners with subtle shadows
-- **Buttons**: Hover effects with transform animations
-- **Forms**: Clean inputs with focus states
-- **Tags**: Pill-shaped with category colors
+4. **Masonry Layout**: Creating a responsive masonry grid that works well with dynamic content and maintains proper spacing across different screen sizes required significant CSS adjustments.
 
-## 🔧 Configuration
+5. **State Management**: Managing complex state for filtering, sorting, and real-time updates while maintaining good performance and user experience was a key challenge.
 
-### Supabase Setup
-1. Create a new Supabase project
-2. Set up the following tables:
-   ```sql
-   -- Posts table
-   CREATE TABLE posts (
-     id SERIAL PRIMARY KEY,
-     title TEXT NOT NULL,
-     content TEXT,
-     image_url TEXT,
-     tags TEXT[],
-     cheers_count INTEGER DEFAULT 0,
-     created_at TIMESTAMP DEFAULT NOW()
-   );
+6. **Date Handling**: Implementing robust date formatting that handles edge cases (invalid dates, missing timestamps) and provides user-friendly relative time display.
 
-   -- Comments table
-   CREATE TABLE comments (
-     id SERIAL PRIMARY KEY,
-     post_id INTEGER REFERENCES posts(id),
-     author TEXT NOT NULL,
-     content TEXT NOT NULL,
-     created_at TIMESTAMP DEFAULT NOW()
-   );
-   ```
+## Technologies Used
 
-### Environment Variables
-- `VITE_SUPABASE_URL`: Your Supabase project URL
-- `VITE_SUPABASE_ANON_KEY`: Your Supabase anonymous key
+- **Frontend**: React 19, Vite, CSS3
+- **Backend**: Supabase (PostgreSQL database, real-time subscriptions)
+- **Styling**: CSS Grid, Flexbox, CSS Variables for theming
+- **Deployment**: Ready for deployment on Netlify/Vercel
 
-## 🚀 Deployment
+## License
 
-### Netlify Deployment
-1. Build the project: `npm run build`
-2. Drag the `dist` folder to Netlify
-3. Set environment variables in Netlify dashboard
-4. Deploy!
+    Copyright 2024 Fatima Tanvir
 
-### Other Platforms
-The app can be deployed to any static hosting service:
-- Vercel
-- GitHub Pages
-- AWS S3
-- Firebase Hosting
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
 
-## 🤝 Contributing
+        http://www.apache.org/licenses/LICENSE-2.0
 
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature-name`
-3. Commit your changes: `git commit -m 'Add feature'`
-4. Push to the branch: `git push origin feature-name`
-5. Submit a pull request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- **Unsplash** for beautiful running images
-- **React Team** for the amazing framework
-- **Supabase** for the backend-as-a-service
-- **Vite** for the fast build tool
-
-## 📞 Support
-
-If you have any questions or need help, please open an issue on GitHub or contact the development team.
-
----
-
-**Happy Running! 🏃‍♂️💨**
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
